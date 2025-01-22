@@ -4,6 +4,8 @@
 let listaAmigos = []
 let resultado = (0)
 let nombreDeAmigo = (0)
+let amigoSorteado = (0)
+let nombreSeleccionado = (0)
 
 function asignarTextoElemento(elemento,texto) {
     let elementoHTML = document.querySelector(elemento);
@@ -24,6 +26,15 @@ function agregarAmigo() {
 }
 
 function sortearAmigo() {
+    //Usando la list de amigos, toma uno para mostrar como nombre de amigo sorteado
+    let amigoSorteado = Math.floor(Math.random()*listaAmigos.length);
+    let nombreSeleccionado = listaAmigos[amigoSorteado];
+    console.log(amigoSorteado);
+    console.log(nombreSeleccionado);
+    return
 
 }
+
+
+
 
