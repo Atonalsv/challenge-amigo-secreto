@@ -2,12 +2,10 @@
 
 //variables
 let listaAmigos = []
-let nombresSorteados = []
 let resultado = (0)
 let nombreDeAmigo = (0)
 let amigoSorteado = (0)
 let nombreSeleccionado = (0)
-let intentos = 1
 
 //Agrega nombre de amigo a la lista verificando si el imput es valido
 function agregarAmigo() {
@@ -20,22 +18,25 @@ function agregarAmigo() {
     asignarTextoElemento('listaAmigos',`${listaAmigos}`);
     vaciarContenido('amigo');
     console.log(listaAmigos);
-    return
+    return;
 }
-
 
 function sortearAmigo() {
     //Usando la list de amigos, toma uno para mostrar como nombre de amigo sorteado
-    let amigoSorteado = Math.floor(Math.random()*listaAmigos.length);
-    let nombreSeleccionado = listaAmigos[amigoSorteado];
-    //Muestra amigo sorteado en pantalla y consoleLog
-    asignarTextoElemento("resultado",`${nombreSeleccionado}`);
-    //Remueve el nombre del amigo sorteado y actualiza array para seguir jugando
-    listaAmigos.splice(amigoSorteado,1);
-    asignarTextoElemento('listaAmigos',`${listaAmigos}`);
-    console.log(amigoSorteado);
-    console.log(nombreSeleccionado);
-    return;
+    if (listaAmigos.length === 0) {
+        asignarTextoElemento('resultado','Ya se han sorteado todos los nombres.');
+    } else if (listaAmigos.length === 1) {
+        let amigoSorteado = Math.floor(Math.random()*listaAmigos.length);
+        let nombreSeleccionado = listaAmigos[amigoSorteado];
+        //Muestra amigo sorteado en pantalla y consoleLog
+        asignarTextoElemento("resultado",`${nombreSeleccionado}`);
+        //Remueve el nombre del amigo sorteado y actualiza array para seguir jugando
+        listaAmigos.splice(amigoSorteado,1);
+        asignarTextoElemento('listaAmigos',`${listaAmigos}`);
+        console.log(amigoSorteado);
+        console.log(nombreSeleccionado); 
+        return;
+    }
 }
 
 
@@ -47,13 +48,6 @@ function asignarTextoElemento(elemento,texto) {
 function vaciarContenido(elemento) {
     document.getElementById(elemento).value = '';
 }
-
-
-
-function mensajeFinal() {
-    asignarTextoElemento('resultado','Ya se han sorteado todos los nombres.')  
-}
-
 
 /*
 Falta hacer que lista de amigos desaparezca cuando seleccione el boton sortear
