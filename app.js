@@ -18,17 +18,17 @@ function agregarAmigo() {
     asignarTextoElemento('listaAmigos',`${listaAmigos}`);
     vaciarContenido('amigo');
     console.log(listaAmigos);
-    return;
+    return
 }
 
 function sortearAmigo() {
-    //Usando la list de amigos, toma uno para mostrar como nombre de amigo sorteado
+    //Usando la list de amigos, genera un nombre aleatorio para mostrar.
     if (listaAmigos.length === 0) {
         asignarTextoElemento('resultado','Ya se han sorteado todos los nombres.');
-    } else if (listaAmigos.length === 1) {
+    } else if (listaAmigos.length == listaAmigos.length) {
         let amigoSorteado = Math.floor(Math.random()*listaAmigos.length);
         let nombreSeleccionado = listaAmigos[amigoSorteado];
-        //Muestra amigo sorteado en pantalla y consoleLog
+        //Muestra amigo sorteado en pantalla
         asignarTextoElemento("resultado",`${nombreSeleccionado}`);
         //Remueve el nombre del amigo sorteado y actualiza array para seguir jugando
         listaAmigos.splice(amigoSorteado,1);
