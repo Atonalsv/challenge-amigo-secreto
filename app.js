@@ -18,7 +18,7 @@ function agregarAmigo() {
     asignarTextoElemento('listaAmigos',`${listaAmigos}`);
     vaciarContenido('amigo');
     console.log(listaAmigos);
-    return
+    return;
 }
 
 function sortearAmigo() {
